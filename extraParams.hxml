@@ -1,0 +1,4 @@
+--macro single_impl.FirstPass.use()
+--no-output
+-D benchmark
+--times
