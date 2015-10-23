@@ -30,3 +30,5 @@ Total time : 14.203s << first + second pass
 We can see about 100% increase in compilation time, which doesn't seem too surprising.
 
 The approach also works with the compilation server, although it busts the cache of every module that depends on a substituted interface.
+
+Run by either running the FD project or through `haxe single_impl.hxml && node bin/singleimpl.js`. To run benchmark, either use `bechnmark.hxml` instead or add `-D benchmark` and `--times`.
