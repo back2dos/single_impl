@@ -1,4 +1,4 @@
-package;
+package example;
 
 class A implements I {
   public function new() { }

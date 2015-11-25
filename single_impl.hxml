@@ -1,4 +1,4 @@
 -cp src
--js bin/singleimpl.js
+-cpp bin
 -main Main
 extraParams.hxml

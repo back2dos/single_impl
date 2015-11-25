@@ -1,5 +1,7 @@
 package;
 
+import example.*;
+
 class Main {
   static function main() {
     var i:I = new A();
@@ -7,14 +9,14 @@ class Main {
     $type(i);//This tells us `I` in the first pass and `A` in the second one
     
     #if second_pass
-      var a:A = i;//In the second pass, `I` resolves to `A`, so the following is possible
+      var a:example.A = i;//In the second pass, `I` resolves to `A`, so the following is possible
       a.aMethod();//Traces "Lo and behold: aMethod just got called!" as it should
     #end
   }
   
   static function junk() {
     #if benchmark
-    var i:I = new A();
+    var i:I = new example.A();
     var i:I = i;
     var i:I = i;
     var i:I = i;

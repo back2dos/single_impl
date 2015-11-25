@@ -4,13 +4,13 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\singleimpl.js" />
+    <movie path="bin" />
     <movie fps="0" />
     <movie width="0" />
     <movie height="0" />
     <movie version="0" />
     <movie minorVersion="0" />
-    <movie platform="JavaScript" />
+    <movie platform="C++" />
     <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
@@ -24,7 +24,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="Main" />
     <option enabledebug="False" />
-    <option additional="extraParams.hxml&#xA;" />
+    <option additional="extraParams.hxml" />
   </build>
   <!-- haxelib libraries -->
   <haxelib>
@@ -46,7 +46,7 @@
   <options>
     <option showHiddenPaths="False" />
     <option testMovie="Custom" />
-    <option testMovieCommand="run.bat" />
+    <option testMovieCommand="run.bat $(BuildConfig)" />
   </options>
   <!-- Plugin storage -->
   <storage />
