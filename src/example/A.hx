@@ -5,3 +5,9 @@ class A implements I {
   public function aMethod() 
     trace('Lo and behold: aMethod just got called!'); 
 }
+
+interface SubType { }
+
+class B implements SubType {
+  public function new() {}
+}

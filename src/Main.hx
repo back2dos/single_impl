@@ -1,10 +1,12 @@
 package;
 
-import example.*;
+import example.A;
+import example.I;
 
 class Main {
   static function main() {
     var i:I = new A();
+    var j:SubType = new B();
     
     $type(i);//This tells us `I` in the first pass and `A` in the second one
     
