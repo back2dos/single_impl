@@ -14,7 +14,6 @@ class Main {
       var a:example.A = i;//In the second pass, `I` resolves to `A`, so the following is possible
       a.aMethod();//Traces "Lo and behold: aMethod just got called!" as it should
     #end
-    Lonely.main();
   }
   
   static function junk() {
