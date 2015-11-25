@@ -1,8 +1,5 @@
 package example;
 
-/**
- * @author back2dos
- */
-interface I {
+interface I extends J {
   
 }

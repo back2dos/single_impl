@@ -17,22 +17,26 @@ class Filter {
           
           var clName = nameOf(cl);
           
-          for (i in cl.interfaces) if (i.params.length == 0) {
-            var i = i.t.get();
-            var name = nameOf(i);
-            
-            interfaces[name] = i;
-            
-            switch implementations[name] {
-              case null:
-                implementations[name] = [cl];
-              case v:
-                v.push(cl);
+          function mark(c:ClassType)
+            for (i in c.interfaces) if (i.params.length == 0) {
+              var i = i.t.get();
+              var name = nameOf(i);
+              
+              interfaces[name] = i;
+              
+              switch implementations[name] {
+                case null:
+                  implementations[name] = [cl];
+                case v:
+                  v.push(cl);
+              }
+              
+              if (params.length > 0)
+                implementations[name].push(cl);//Classes with parameters count twice, so that even if they are the only implementor, they are not elligible for substitution
+                
+              mark(i);
             }
-            
-            if (params.length > 0)
-              implementations[name].push(cl);//Classes with parameters count twice, so that even if they are the only implementor, they are not elligible for substitution
-          }
+          mark(cl);
         default:
       }
     
