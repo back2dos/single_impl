@@ -3,10 +3,16 @@ package single_impl;
 import haxe.macro.Type;
 
 class Filter {
-  static public function nameOf(b:BaseType) 
-    return b.pack.concat([b.name]).join('.');
   
-  static public function getSingleImplementations(types:Array<Type>):Array<{ orphan:ClassType, impl: ClassType }> {
+  static public function isSecondary(b:BaseType) 
+    return b.isPrivate || b.module != nameOf(b);
+    
+  static public function nameOf(b:BaseType) 
+    return 
+      if (b == null) null 
+      else b.pack.concat([b.name]).join('.');
+  
+  static public function getSingleImplementations(types:Array<Type>):Array<{ orphan:ClassType, impl: Null<ClassType> }> {
     var implementations = new Map<String, Array<ClassType>>(),
         interfaces = new Map<String, ClassType>();
       
@@ -44,7 +50,7 @@ class Filter {
     //loop through all interfaces found  
     for (name in implementations.keys())
       switch implementations[name] {
-        case []: //no implementations - do something?
+        case []: ret.push({ orphan: interfaces[name], impl: null });
         case [v]: ret.push({ orphan: interfaces[name], impl: v });
         default:
       }    

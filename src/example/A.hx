@@ -6,11 +6,11 @@ class A implements I {
     function foo(sub:SubType) { }
     foo2(new D()); 
   }
-  public function aMethod() 
+  public function aMethod():SubI {
     trace('Lo and behold: aMethod just got called!'); 
-    
-  //public function foo(sub:SubType) {}
-  //public function bar(sub:I2) {}
+    return null;
+  }
+  
   public function foo2(sub:SubType2) {
     
   }

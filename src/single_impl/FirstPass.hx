@@ -23,7 +23,7 @@ class FirstPass {
     
     //Await the end of compilation
     Context.onGenerate(function (types:Array<Type>) {
-      for (x in types.getSingleImplementations()) {
+      for (x in types.getSingleImplementations()) if (x.impl != null) {
         args.push('--macro');
         args.push('addGlobalMetadata(\'${x.orphan.nameOf()}\', \'@:genericBuild(single_impl.Skip.build(\\\'${x.impl.nameOf()}\\\'))\', false, true, false)');        
       }

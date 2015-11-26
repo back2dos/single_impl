@@ -9,7 +9,7 @@ class Main {
     var j:SubType = new B();
     
     $type(i);//This tells us `I` in the first pass and `A` in the second one
-    
+    (new A()).aMethod();
     #if second_pass
       var a:example.A = i;//In the second pass, `I` resolves to `A`, so the following is possible
       a.aMethod();//Traces "Lo and behold: aMethod just got called!" as it should
